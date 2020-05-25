@@ -29,6 +29,7 @@
         ]
     },
     "require": {
+        "phink/reed": "dev-develop",
         "phpunit/phpunit": "^8.5",
         "twig/twig": "^3.0"
     }
