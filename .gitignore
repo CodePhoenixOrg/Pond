@@ -1,0 +1,17 @@
+*.crt
+*.pem
+*.tgz
+*.log
+*.code-workspace
+.vscode
+credentials.json
+api-context.json
+environment.json
+directories.json
+cookies
+input
+output
+php_error_log
+vendor
+cache
+composer.lock
