@@ -40,7 +40,7 @@ body {
 
 header {
   padding: 0px 0;
-  background-color: #bc001d;
+  background-color: #11115F;
   color: #fff;
 }
 
@@ -55,7 +55,7 @@ header h3 {
 
 /*** Nav ***/
 .navbar-default {
-  background-color: #bc001d;
+  background-color: #11115F;
   color: white;
 }
 
@@ -67,7 +67,7 @@ header h3 {
   color: white;
 }
 
-.navbar-default > li > a {
+.navbar-default>li>a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
@@ -80,17 +80,15 @@ header h3 {
 }
 
 
-.navbar-default .navbar-nav > li > a, 
-.navbar-default .navbar-nav > li > a
-{
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a {
   font-size: 1em;
   color: #fff;
 }
 
-.navbar-default .navbar-nav > li > a:focus, 
-.navbar-default .navbar-nav > li > a:hover 
-{
-  color: #bc001d;
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #11115F;
 }
 
 /*** Content ***/
