@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "classmap": [
-            "src/lib/",
+            "framework/",
             "src/api/",
             "src/apps/drop/src/commands"
 
