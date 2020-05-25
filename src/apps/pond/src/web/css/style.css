@@ -1,0 +1,47 @@
+
+body {
+    overflow-y: hidden;
+}
+
+.clear {
+    clear: both;
+}
+
+.panel {
+    overflow-y:unset;
+    height: 50%;
+}
+
+.subpanel {
+    overflow-y: scroll;
+    height: 100%;
+
+}
+
+.tile {
+    float: left;
+    position: relative;
+    list-style-type: none;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+}
+
+.label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: small;
+    word-wrap:break-word;
+}
+
+.cumulus {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: small;
+
+}

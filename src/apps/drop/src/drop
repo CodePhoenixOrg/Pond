@@ -1,0 +1,4 @@
+#!/bin/bash
+PHP=$(which php);
+
+$PHP ./drop.php $1 $2

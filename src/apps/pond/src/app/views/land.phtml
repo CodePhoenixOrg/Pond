@@ -1,0 +1,17 @@
+{% extends 'base.phtml' %}
+{% block title %}Land{% endblock %}
+{% block body %}
+<label>Landing page</label>
+<textarea id="text" cols="80" rows="24">
+</textarea>
+{% endblock %}
+{% block javascripts %}
+<script>
+    Pond.DOM.ready(function() {
+        Pond.ajax("https://pond.loc/land/here", null, function(data) {
+            console.log(data);
+            document.querySelector("#text").innerHTML = data.label;
+        });
+    });
+</script>
+{% endblock %}

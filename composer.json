@@ -1,0 +1,23 @@
+{
+    "autoload": {
+        "classmap": [
+            "src/lib/",
+            "src/api/",
+            "src/apps/pond/src/commands"
+
+        ],
+        "exclude-from-classmap": [
+            "src/lib/core/autoloader.php"
+        ],
+        "psr-4": {
+            "Pond\\": ""
+        },
+        "files": [
+            "src/lib/core/constants.php"
+        ]
+    },
+    "require": {
+        "phpunit/phpunit": "^8.5",
+        "twig/twig": "^3.0"
+    }
+}

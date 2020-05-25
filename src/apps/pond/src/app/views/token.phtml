@@ -1,0 +1,16 @@
+{% extends 'base.phtml' %}
+{% block title %}Pages!{% endblock %}
+{% block body %}
+<form target="token.html" method="POST">
+    <label for="token">Enter token</label>
+    <input name="token" id="token" type="text" style="width:500px;" />
+    <p>
+        <button type="submit" value="OK">Translate</button>
+    </p>
+</form>
+
+<p>
+    The token <strong>{{ token }}</strong> was translated to cumulus ID <strong>{{ cumulus }}</strong>
+</p>
+
+{% endblock %}
