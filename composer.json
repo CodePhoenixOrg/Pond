@@ -1,5 +1,5 @@
 {
-    "name": "phink/pond",
+    "name": "Reed/pond",
     "type": "library",
     "description": "A basic framework for PHP code eperiments",
     "homepage": "https://code-phoenix.org",
@@ -19,13 +19,13 @@
 
         ],
         "exclude-from-classmap": [
-            "src/lib/core/autoloader.php"
+            "framework/core/autoloader.php"
         ],
         "psr-4": {
             "Pond\\": ""
         },
         "files": [
-            "src/lib/core/constants.php"
+            "framework/core/constants.php"
         ]
     },
     "require": {
