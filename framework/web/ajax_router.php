@@ -26,13 +26,13 @@ class AjaxRouter extends BaseWebObject
 
     public function translate()
     {
-        $url = parse_url(REQUEST_URI);
+        $url = parse_url(POND_REQUEST_URI);
         $qParts = explode('/', substr($url['path'], 1));
         $this->apiName = array_shift($qParts);
         $this->method = array_shift($qParts);
         $this->parameter = array_shift($qParts);
  
-        $this->controllerFileName = SRC_DIR . 'app' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $this->apiName . '.class.php';
+        $this->controllerFileName = POND_SRC_DIR . 'app' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $this->apiName . '.class.php';
         
         return file_exists($this->controllerFileName);
     }

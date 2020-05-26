@@ -5,7 +5,7 @@ namespace CodePhoenixOrg\Pond\Framework\Api;
 final class ApiContext
 {
 
-    private const filename = CONFIG_DIR . 'api-context.json';
+    private const filename = POND_CONFIG_DIR . 'api-context.json';
     private $json = '';
 
     public function __construct()

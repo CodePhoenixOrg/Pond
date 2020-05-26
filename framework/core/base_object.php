@@ -11,7 +11,7 @@ abstract class BaseObject implements JsonSerializable
     private $env = '';
     private static $logger = null;
 
-    public function __construct(?int $id = null)
+    public function __construct(string $id = null)
     {
         $this->id = $id;
 

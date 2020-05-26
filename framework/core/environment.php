@@ -7,7 +7,7 @@ final class Environment
     const STAGING = "staging";
     const PRODUCTION = "live";
 
-    private const filename = CONFIG_DIR . 'environment.json';
+    private const filename = POND_CONFIG_DIR . 'environment.json';
     private $json = '';
 
     public function __construct()

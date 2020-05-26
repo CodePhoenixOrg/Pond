@@ -3,7 +3,7 @@ namespace CodePhoenixOrg\Pond\Framework\Auth;
 
 final class Credentials
 {
-    private const filename = CONFIG_DIR . 'credentials.json';
+    private const filename = POND_CONFIG_DIR . 'credentials.json';
     private $json = '';
 
     public function __construct()

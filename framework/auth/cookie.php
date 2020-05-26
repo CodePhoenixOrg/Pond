@@ -5,7 +5,7 @@ use CodePhoenixOrg\Pond\Framework\File\FileUtils;
 
 class Cookie
 {
-    private const COOKIES_DIR = ROOT_DIR . 'cookies';
+    private const COOKIES_DIR = POND_ROOT_DIR . 'cookies';
     private const COOKIES_FILENAME = Cookie::COOKIES_DIR . DIRECTORY_SEPARATOR . 'cookies.txt';
 
     public static function load(): ?string

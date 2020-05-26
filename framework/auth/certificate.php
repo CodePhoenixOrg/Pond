@@ -3,7 +3,7 @@ namespace CodePhoenixOrg\Pond\Framework\Auth;
 
 class Certificate
 {
-    private const filename = CONFIG_DIR . 'certificate.json';
+    private const filename = POND_CONFIG_DIR . 'certificate.json';
     private $json = '';
     private static $instance = null;
 
@@ -23,7 +23,7 @@ class Certificate
         if (!isset($this->json['path'])) {
             throw new \Exception('You must provide the path of the certificate');
         }
-        return SRC_DIR . '..' . DIRECTORY_SEPARATOR . $this->json['path'];
+        return POND_SRC_DIR . '..' . DIRECTORY_SEPARATOR . $this->json['path'];
     }
 
     public static function getInstance(): Certificate

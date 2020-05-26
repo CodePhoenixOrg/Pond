@@ -35,7 +35,7 @@ class Autoloader
         $className = lcfirst(array_pop($nsParts));
         $filepath = strtolower(implode(DIRECTORY_SEPARATOR, $nsParts));
 
-        $fileName = DOCUMENT_ROOT . 'app' . DIRECTORY_SEPARATOR . $filepath . DIRECTORY_SEPARATOR . $className . '.class.php';
+        $fileName = POND_DOCUMENT_ROOT . 'app' . DIRECTORY_SEPARATOR . $filepath . DIRECTORY_SEPARATOR . $className . '.class.php';
 
     }
 

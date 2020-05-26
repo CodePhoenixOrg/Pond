@@ -24,15 +24,15 @@ class WebRouter extends BaseWebObject
 
     public function translate()
     {
-        $url = parse_url(REQUEST_URI);
+        $url = parse_url(POND_REQUEST_URI);
         $this->viewName = $url['path'];
         $info = pathinfo($this->viewName);
         $this->viewName = $info['filename'];
-        $extension = $info['extension'];
+        $extension = isset($info['extension']) ? $info['extension'] : '';
         $this->viewName = ($this->viewName === '') ? 'home' : $this->viewName;
         $extension = ($this->viewName === 'home') ? 'html' : $extension;
         
-        $this->controllerFileName = SRC_DIR . 'app' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $this->viewName . '.class.php';
+        $this->controllerFileName = POND_SRC_DIR . 'app' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $this->viewName . '.class.php';
         
         return $extension === 'html' && file_exists($this->controllerFileName);
     }

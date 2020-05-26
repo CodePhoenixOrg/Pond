@@ -33,14 +33,14 @@ class WebApplication extends BaseWebObject
         $this->response = new WebResponse();
         
         $router = null;
-        if(strstr(ACCEPT, 'application/json' )) {
+        if(strstr(POND_ACCEPT, 'application/json' )) {
             $router = new AjaxRouter($this);
         }
-        if(strstr(ACCEPT, 'application/xhtml+xml' )) {
+        if(strstr(POND_ACCEPT, 'application/xhtml+xml' )) {
             $router = new WebRouter($this);
         }
 
-        if(strstr(ACCEPT, '*/*' )) {
+        if(strstr(POND_ACCEPT, '*/*' )) {
             $router = new WebRouter($this);
         }
 

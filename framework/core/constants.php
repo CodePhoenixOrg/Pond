@@ -2,38 +2,38 @@
 
 namespace CodePhoenixOrg\Pond\Framework\Constants;
 
-define('DOCUMENT_ROOT', isset($_SERVER['DOCUMENT_ROOT']) ? $_SERVER['DOCUMENT_ROOT'] : '');
+define('POND_DOCUMENT_ROOT', isset($_SERVER['DOCUMENT_ROOT']) ? $_SERVER['DOCUMENT_ROOT'] : '');
 
-define('IS_WEBAPP', !empty(DOCUMENT_ROOT));
+define('POND_IS_WEBAPP', !empty(POND_DOCUMENT_ROOT));
 // Web environment
-if (IS_WEBAPP) {
+if (POND_IS_WEBAPP) {
     
-    define('SRC_DIR', realpath(DOCUMENT_ROOT . DIRECTORY_SEPARATOR . '..') . DIRECTORY_SEPARATOR);
-    define('ROOT_DIR', realpath(SRC_DIR . '..') . DIRECTORY_SEPARATOR);
-    define('CACHE_DIR', SRC_DIR . 'cache' . DIRECTORY_SEPARATOR);
-    define('APP_DIR', SRC_DIR . 'app' . DIRECTORY_SEPARATOR);
-    define('APP_DATA', ROOT_DIR . 'data' . DIRECTORY_SEPARATOR);
-    define('WEB_DIR', SRC_DIR . 'web' . DIRECTORY_SEPARATOR);
-    define('VIEWS_DIR', APP_DIR . 'views' . DIRECTORY_SEPARATOR);
+    define('POND_SRC_DIR', realpath(POND_DOCUMENT_ROOT . DIRECTORY_SEPARATOR . '..') . DIRECTORY_SEPARATOR);
+    define('POND_ROOT_DIR', realpath(POND_SRC_DIR . '..') . DIRECTORY_SEPARATOR);
+    define('POND_CACHE_DIR', POND_SRC_DIR . 'cache' . DIRECTORY_SEPARATOR);
+    define('POND_APP_DIR', POND_SRC_DIR . 'app' . DIRECTORY_SEPARATOR);
+    define('POND_APP_DATA', POND_ROOT_DIR . 'data' . DIRECTORY_SEPARATOR);
+    define('POND_WEB_DIR', POND_SRC_DIR . 'web' . DIRECTORY_SEPARATOR);
+    define('VIEWS_DIR', POND_APP_DIR . 'views' . DIRECTORY_SEPARATOR);
 
-    define('REQUEST_URI', $_SERVER['REQUEST_URI']);
-    define('REQUEST_PARAMS', $_REQUEST);
-    define('REQUEST_METHOD', $_SERVER['REQUEST_METHOD']);
-    define('QUERY_STRING', $_SERVER['QUERY_STRING']);
-    define('ACCEPT', $_SERVER['HTTP_ACCEPT']);
+    define('POND_REQUEST_URI', $_SERVER['REQUEST_URI']);
+    define('POND_REQUEST_PARAMS', $_REQUEST);
+    define('POND_REQUEST_METHODS', $_SERVER['REQUEST_METHOD']);
+    define('POND_QUERY_STRING', $_SERVER['QUERY_STRING']);
+    define('POND_ACCEPT', $_SERVER['HTTP_ACCEPT']);
 }
 
 // CLI environment
-if (!IS_WEBAPP) {
-    define('CACHE_DIR', 'cache');
-    define('SRC_DIR', '.' . DIRECTORY_SEPARATOR);
-    define('ROOT_DIR', realpath(SRC_DIR . '..') . DIRECTORY_SEPARATOR);
+if (!POND_IS_WEBAPP) {
+    define('POND_CACHE_DIR', 'cache');
+    define('POND_SRC_DIR', '.' . DIRECTORY_SEPARATOR);
+    define('POND_ROOT_DIR', realpath(POND_SRC_DIR . '..') . DIRECTORY_SEPARATOR);
 }
 
-define('INPUT_DIR', ROOT_DIR . 'input' . DIRECTORY_SEPARATOR);
-define('OUTPUT_DIR', ROOT_DIR . 'output' . DIRECTORY_SEPARATOR);
-define('CONFIG_DIR', ROOT_DIR . 'config' . DIRECTORY_SEPARATOR);
-define('LOGS_DIR', ROOT_DIR . 'logs' . DIRECTORY_SEPARATOR);
+define('POND_INPUT_DIR', POND_ROOT_DIR . 'input' . DIRECTORY_SEPARATOR);
+define('POND_OUTPUT_DIR', POND_ROOT_DIR . 'output' . DIRECTORY_SEPARATOR);
+define('POND_CONFIG_DIR', POND_ROOT_DIR . 'config' . DIRECTORY_SEPARATOR);
+define('POND_LOGS_DIR', POND_ROOT_DIR . 'logs' . DIRECTORY_SEPARATOR);
 
-define('JSON_EXTENSION', '.json');
-define('CSV_EXTENSION', '.csv');
+define('POND_JSON_EXTENSION', '.json');
+define('POND_CSV_EXTENSION', '.csv');

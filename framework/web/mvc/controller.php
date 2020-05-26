@@ -36,9 +36,16 @@ abstract class Controller extends BaseWebObject
         }
 
         $this->view = $view;
+
+        $loader = new \Reed\Core\TTemplateLoader(VIEWS_DIR);
+        $engine = new \Reed\Core\TTemplateEngine($loader);
+
+
+
+
         $loader = new \Twig\Loader\FilesystemLoader(VIEWS_DIR);
         $this->twigEnvironment = new \Twig\Environment($loader, [
-            'cache' => CACHE_DIR,
+            'cache' => POND_CACHE_DIR,
         ]);
     }
 

@@ -22,7 +22,7 @@ class View extends BaseWebObject
     public function __construct($viewName)
     {
         $this->viewName = $viewName;
-        $this->viewFileName = SRC_DIR . 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $viewName . '.phtml';
+        $this->viewFileName = POND_SRC_DIR . 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $viewName . '.phtml';
         $this->viewFileName = realpath($this->viewFileName);
     }
     

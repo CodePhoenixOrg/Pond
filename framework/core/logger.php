@@ -7,9 +7,9 @@ use Exception;
 
 class Logger
 {
-    private const ACCESS_FILENAME = LOGS_DIR . 'access.log';
-    private const DEBUG_FILENAME = LOGS_DIR . 'debug.log';
-    private const ERROR_FILENAME = LOGS_DIR . 'error.log';
+    private const ACCESS_FILENAME = POND_LOGS_DIR . 'access.log';
+    private const DEBUG_FILENAME = POND_LOGS_DIR . 'debug.log';
+    private const ERROR_FILENAME = POND_LOGS_DIR . 'error.log';
     private $env = '';
 
     public function __construct()

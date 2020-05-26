@@ -2,7 +2,6 @@
 
 namespace CodePhoenixOrg\Pond\Framework\Web;
 
-use CodePhoenixOrg\Pond\Framework\Api\BaseApi;
 use CodePhoenixOrg\Pond\Framework\Auth\Certificate;
 use CodePhoenixOrg\Pond\Framework\Auth\Cookie;
 use CodePhoenixOrg\Pond\Framework\Web\BaseWebObject;
@@ -32,7 +31,7 @@ abstract class BaseRequest extends BaseWebObject
 
         $headers = [];
         $headers[] = 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0';
-        $headers[] = 'Accept: application/json';
+        $headers[] = 'POND_ACCEPT: application/json';
         $headers[] = 'Content-Type: application/json';
         $headers[] = 'Origin: ' . $this->getHostName();
         $headers[] = 'Cookie: ' . $cookie;
@@ -80,7 +79,7 @@ abstract class BaseRequest extends BaseWebObject
         // curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
         $headers = [];
         $headers[] = 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0';
-        $headers[] = 'Accept: application/json';
+        $headers[] = 'POND_ACCEPT: application/json';
         $headers[] = 'Content-Type: application/json';
         $headers[] = 'Origin: ' . $this->getHostName();
         $headers[] = 'Cookie: ' . $cookie;
@@ -124,7 +123,7 @@ abstract class BaseRequest extends BaseWebObject
 
         $headers = [];
         $headers[] = 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0';
-        $headers[] = 'Accept: application/json';
+        $headers[] = 'POND_ACCEPT: application/json';
         $headers[] = 'Content-Type: application/json';
         $headers[] = 'Origin: ' . $this->getHostName();
         $headers[] = 'Cookie: ' . $cookie;
@@ -198,36 +197,4 @@ abstract class BaseRequest extends BaseWebObject
         return [$header, $body];
     }
 
-    public function parseResponseForId($response): string
-    {
-        $headers = self::get_headers_from_curl_response($response);
-        $newId = self::getIdByLocation($headers['Location']);
-
-        return $newId;
-    }
-
-    private static function getIdByLocation($location)
-    {
-        $locationExplode = explode('/', $location);
-        return $locationExplode[count($locationExplode) - 1];
-    }
-
-    private static function get_headers_from_curl_response($response)
-    {
-        $headers = [];
-
-        $header_text = substr($response, 0, strpos($response, "\r\n\r\n"));
-
-        foreach (explode("\r\n", $header_text) as $i => $line) {
-            if ($i === 0) {
-                $headers['http_code'] = $line;
-            } else {
-                list($key, $value) = explode(': ', $line);
-
-                $headers[$key] = $value;
-            }
-        }
-
-        return $headers;
-    }
 }

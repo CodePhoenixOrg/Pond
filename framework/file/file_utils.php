@@ -5,9 +5,9 @@ namespace CodePhoenixOrg\Pond\Framework\File;
 class FileUtils 
 {
 
-    private const filename = CONFIG_DIR . 'directories.json';
-    private $outputDir = OUTPUT_DIR;
-    private $inputDir = INPUT_DIR;
+    private const filename = POND_CONFIG_DIR . 'directories.json';
+    private $outputDir = POND_OUTPUT_DIR;
+    private $inputDir = POND_INPUT_DIR;
     private static $instance;
 
     private $json = null;
@@ -117,10 +117,10 @@ class FileUtils
     public function getInputDir(): string
     {
         if (count($this->json) == 0 || !isset($this->json['input'])) {
-            return INPUT_DIR;
+            return POND_INPUT_DIR;
         }
 
-        $this->inputDir = self::absolutePath($this->json['input'], INPUT_DIR) . DIRECTORY_SEPARATOR;
+        $this->inputDir = self::absolutePath($this->json['input'], POND_INPUT_DIR) . DIRECTORY_SEPARATOR;
 
         return $this->inputDir;
     }
@@ -128,10 +128,10 @@ class FileUtils
     public function getOutputDir(): string
     {
         if (count($this->json) == 0 || !isset($this->json['output'])) {
-            return OUTPUT_DIR;
+            return POND_OUTPUT_DIR;
         }
 
-        $this->outputDir = self::absolutePath($this->json['output'], OUTPUT_DIR) . DIRECTORY_SEPARATOR;
+        $this->outputDir = self::absolutePath($this->json['output'], POND_OUTPUT_DIR) . DIRECTORY_SEPARATOR;
 
         return $this->outputDir;
     }
@@ -149,7 +149,7 @@ class FileUtils
     public static function absolutePath(string $directory, ?string $default = null): string
     {
 
-        if(IS_WEBAPP && $default !== null) {
+        if(POND_IS_WEBAPP && $default !== null) {
             $directory = $default;
             if (!file_exists($directory)) {
                 self::makedir($directory);

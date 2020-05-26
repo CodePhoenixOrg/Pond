@@ -8,7 +8,7 @@ class Console
 {
     public static function write($string, ...$params): void
     {
-        if (IS_WEBAPP) {
+        if (POND_IS_WEBAPP) {
             return;
         }
 
@@ -19,7 +19,7 @@ class Console
 
     public static function writeLine($string, ...$params): void
     {
-        if (IS_WEBAPP) {
+        if (POND_IS_WEBAPP) {
             return;
         }
         
