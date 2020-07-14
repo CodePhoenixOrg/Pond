@@ -1,0 +1,12 @@
+:root {
+    --back-color: black;
+    --fore-color: lightgray;
+}
+
+* {
+    font-family: 'PT Mono', monospace;
+    font-size: 10pt;
+    font-weight: 400;
+    background-color: var(--back-color);
+    color: var(--fore-color);
+}

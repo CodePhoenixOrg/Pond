@@ -8,7 +8,7 @@
 {% block javascripts %}
 <script>
     Pond.DOM.ready(function() {
-        Pond.ajax("https://pond.loc/land/here", null, function(data) {
+        Pond.ajax("https://pond.loc:8443/land/here", null, function(data) {
             console.log(data);
             document.querySelector("#text").innerHTML = data.label;
         });
