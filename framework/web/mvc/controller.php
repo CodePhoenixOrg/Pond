@@ -8,6 +8,9 @@
 
 namespace CodePhoenixOrg\Pond\Framework\Web;
 
+use Reed\Template\TTemplateEngine;
+use Reed\Template\TTemplateLoader;
+
 /**
  * Description of controller
  *
@@ -21,6 +24,7 @@ abstract class Controller extends BaseWebObject
     //put your code here
     private $view;
     private $twigEnvironment = null;
+    private $engine = null;
 
     public function __construct(?View $view = null)
     {
@@ -31,22 +35,19 @@ abstract class Controller extends BaseWebObject
         $this->response = new WebResponse();
         $this->request = new WebRequest();
 
-        if($view === null) {
+        if ($view === null) {
             return;
         }
 
         $this->view = $view;
 
-        $loader = new \Reed\Core\TTemplateLoader(VIEWS_DIR);
-        $engine = new \Reed\Core\TTemplateEngine($loader);
+        $loader = new TTemplateLoader(VIEWS_DIR);
+        $this->engine = new TTemplateEngine($loader);
 
-
-
-
-        $loader = new \Twig\Loader\FilesystemLoader(VIEWS_DIR);
-        $this->twigEnvironment = new \Twig\Environment($loader, [
-            'cache' => POND_CACHE_DIR,
-        ]);
+        // $loader = new \Twig\Loader\FilesystemLoader(VIEWS_DIR);
+        // $this->twigEnvironment = new \Twig\Environment($loader, [
+        //     'cache' => POND_CACHE_DIR,
+        // ]);
     }
 
     abstract public function load(): ?array;
@@ -55,7 +56,9 @@ abstract class Controller extends BaseWebObject
     {
         $dictionary = $this->load();
 
-        $html = $this->twigEnvironment->render($this->view->getRelativeViewFilename(), $dictionary);
+        // $html = $this->twigEnvironment->render($this->view->getRelativeViewFilename(), $dictionary);
+        $html = $this->engine->render($this->view->getRelativeViewFilename(), $dictionary);
+
         echo $html;
     }
 }
