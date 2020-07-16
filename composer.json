@@ -16,7 +16,6 @@
             "framework/",
             "src/api/",
             "src/apps/drop/src/commands"
-
         ],
         "exclude-from-classmap": [
             "framework/core/autoloader.php"
@@ -28,8 +27,15 @@
             "framework/core/constants.php"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [{
+        "type": "path", 
+        "url": "../Reed",
+        "symlink": true
+    }],
     "require": {
-        "phink/reed": "dev-develop",
+        "phink/reed": "@dev",
         "phpunit/phpunit": "^8.5",
         "twig/twig": "^3.0"
     }
