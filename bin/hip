@@ -1,0 +1,5 @@
+#!/bin/sh
+# Launch only outside the docker container
+#echo $(hostname -I) host.docker.internal > hosts.txt
+
+hostname -I | awk '{print $1 " host.docker.internal"}' > $(pwd)/src/apps/pond/src/config/ip
