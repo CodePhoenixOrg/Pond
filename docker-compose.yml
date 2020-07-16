@@ -7,6 +7,8 @@ services:
      - '8080:80'
      - '8443:443'
     volumes:
-     - ./src:/src
-     - ./vendor:/vendor
-     - ./framework:/framework
+      - ./framework:/Sites/CodePhoenixOrg/SDK/php/Pond/framework
+      - ./src:/Sites/CodePhoenixOrg/SDK/php/Pond/src
+      - ./vendor:/Sites/CodePhoenixOrg/SDK/php/Pond/vendor
+      - ../Reed:/Sites/CodePhoenixOrg/SDK/php/Reed
+    #command: sh -c "sudo /usr/local/bin/hop"
