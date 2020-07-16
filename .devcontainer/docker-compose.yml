@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lap:pond
+    ports:
+     - '8080:80'
+     - '8443:443'
+    volumes:
+     - ../framework:/Sites/CodePhoenixOrg/SDK/php/Pond/framework
+     - ../src:/Sites/CodePhoenixOrg/SDK/php/Pond/src
+     - ../vendor:/Sites/CodePhoenixOrg/SDK/php/Pond/vendor
+     - ../../Reed:/Sites/CodePhoenixOrg/SDK/php/Reed
+    command: /bin/sh -c "chmod 775 /usr/local/bin/hop; /usr/local/bin/hop"

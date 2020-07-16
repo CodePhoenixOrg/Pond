@@ -1,0 +1,3 @@
+#!/bin/sh
+# Launch only inside the docker container !
+cat /Sites/CodePhoenixOrg/SDK/php/Pond/src/apps/pond/src/config/ip >> /etc/hosts
