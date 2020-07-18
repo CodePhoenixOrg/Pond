@@ -1,13 +1,17 @@
 <phx:extends template="master.phtml" />
 <phx:block name="title">Coucou!</phx:block>
+<phx:block name="stylesheets">
+    <link rel="stylesheet" href="css/pond-theme.css" />
+    <link rel="stylesheet" href="css/pond.css" />
+</phx:block>
 <phx:block name="body">
     <p>
-        Hello&nbsp;<phx:echo var="name" />!
+        Hello&nbsp;
+        <phx:echo var="name" />!
     </p>
-    <p>This is reed</p>
-    <p>again</p>
-
-
+    <phx:for item in items >
+    <p>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+    </p>
+    </phx:for>
 </phx:block>
-
-
