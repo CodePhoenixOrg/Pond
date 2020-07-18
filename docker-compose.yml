@@ -1,14 +1,12 @@
 version: "3.0"
 services:
-  php:
+  aphpache:
     build: ./docker
     image: lap:pond
     ports:
      - '8080:80'
      - '8443:443'
     volumes:
-      - ./framework:/Sites/CodePhoenixOrg/SDK/php/Pond/framework
-      - ./src:/Sites/CodePhoenixOrg/SDK/php/Pond/src
-      - ./vendor:/Sites/CodePhoenixOrg/SDK/php/Pond/vendor
+      - .:/Sites/CodePhoenixOrg/SDK/php/Pond
       - ../Reed:/Sites/CodePhoenixOrg/SDK/php/Reed
     #command: sh -c "sudo /usr/local/bin/hop"
