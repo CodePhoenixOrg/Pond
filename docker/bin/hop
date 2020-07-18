@@ -1,3 +1,10 @@
 #!/bin/sh
 # Launch only inside the docker container !
-cat /Sites/CodePhoenixOrg/SDK/php/Pond/src/apps/pond/src/config/ip >> /etc/hosts
+
+i=0;
+for ip in $(cat /Sites/CodePhoenixOrg/SDK/php/Pond/src/apps/pond/src/config/ip);
+do 
+    echo $ip" host${i}.docker.internal" >> /etc/hosts
+    i=$(echo $i+1|bc);
+done;
+

@@ -1,5 +1,20 @@
 #!/bin/sh
 # Launch only outside the docker container
-#echo $(hostname -I) host.docker.internal > hosts.txt
 
-hostname -I | awk '{print $1 " host.docker.internal"}' > $(pwd)/src/apps/pond/src/config/ip
+# hostname -I | awk '{print $1 " host.docker.internal"}' > $(pwd)/src/apps/pond/src/config/ip
+# ip -4 route list match 0/0 | awk '{print $3 " host.docker.internal"}' > $(pwd)/src/apps/pond/src/config/ip
+
+IP=$(ip -4 route list match 0/0 | awk '{print $3}')
+
+echo Storing IP $IP to $(pwd)/src/apps/pond/src/config/ip
+echo $IP > $(pwd)/src/apps/pond/src/config/ip
+
+IP=$(hostname -I | awk '{print $1}')
+
+echo Storing IP $IP to $(pwd)/src/apps/pond/src/config/ip
+echo $IP >> $(pwd)/src/apps/pond/src/config/ip
+
+IP=$(cat /etc/hosts|grep host.docker.internal|cut -f1)
+
+echo Storing IP $IP to $(pwd)/src/apps/pond/src/config/ip
+echo $IP >> $(pwd)/src/apps/pond/src/config/ip
