@@ -1,0 +1,3 @@
+#!/bin/sh
+docker build --pull --rm -f $(pwd)/docker/Dockerfile -t pond:latest "docker"
+

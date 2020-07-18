@@ -1,0 +1,15 @@
+#!/bin/sh
+$(pwd)/bin/hip # store host IP
+docker-compose -f $(pwd)/docker-compose.yml up -d --build # rebuild the container
+docker exec -t pond_php_1 /bin/sh -c "chmod 775 /usr/local/bin/hop; /usr/local/bin/hop" # bind the host IP
+
+docker exec -t pond_php_1 /bin/sh -c "cat /etc/hosts"
+
+i=0;
+for ip in $(cat $(pwd)/src/apps/pond/src/config/ip);
+do 
+    docker exec -t pond_php_1 /bin/sh -c "sudo ping host${i}.docker.internal -c 1"
+    i=$(echo $i+1|bc);
+done;
+
+
